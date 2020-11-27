@@ -1,3 +1,4 @@
+import 'package:conversor_moeda/app/componentes/currenty_box.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,40 +8,31 @@ class HomeView extends StatelessWidget {
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(200),
+        child: Padding(
+          padding: EdgeInsets.only(top: 100, left: 20, right: 20),
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(200),
                 child: Image.network(
-                    'https://thumbs.dreamstime.com/b/convers%C3%A3o-da-troca'
-                        '-e-de-moeda-%C3%ADcone-do-d%C3%B3lar-99611853.jpg'),
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-
-              child: Row(
-                children: [
-                  Expanded(
-                    child: DropdownButton(items: [], onChanged: (value) {
-
-                    }),
-                  ),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(),
-                    ),
-                  ),
-                ],
+                  'https://thumbs.dreamstime.com/b/convers%C3%A3o-da-troca'
+                  '-e-de-moeda-%C3%ADcone-do-d%C3%B3lar-99611853.jpg',
+                  width: 150,
+                  height: 150,
+                ),
               ),
-            ),
-            RaisedButton(onPressed: (){
-
-            },
-              child: Text('CONVERTER'),
-            ),
-
-
-          ],
+              SizedBox(height: 50,),
+              CurrencyBox(),
+              SizedBox(height: 15,),
+              CurrencyBox(),
+              SizedBox(height: 50,),
+              RaisedButton(
+                color: Colors.amber,
+                onPressed: () {},
+                child: Text('CONVERTER'),
+              ),
+            ],
+          ),
         ),
       ),
     );
